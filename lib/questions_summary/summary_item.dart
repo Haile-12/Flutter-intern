@@ -17,15 +17,17 @@ class SummaryItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Use 'question_index' here instead of 'question'
           QuestionIdentifier(
             isCorrectAnswer: isCorrectAnswer,
-            questionIndex: itemData['question'] as int,
+            questionIndex: itemData['question_index'] as int,
           ),
           const SizedBox(width: 20),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Question text
                 Text(
                   itemData['question'] as String,
                   style: GoogleFonts.lato(
@@ -35,12 +37,14 @@ class SummaryItem extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 5),
+                // User's answer
                 Text(
                   itemData['user_answer'] as String,
                   style: const TextStyle(
                     color: Color.fromARGB(255, 202, 171, 252),
                   ),
                 ),
+                // Correct answer
                 Text(
                   itemData['correct_answer'] as String,
                   style: const TextStyle(
